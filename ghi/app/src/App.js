@@ -2,12 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppointmentList from './AppointmentList.js';
 import MainPage from './MainPage';
 import Nav from './Nav';
+import AppointmentHistory from './AppointmentHistory.js';
+import AppointmentForm from './AppointmentForm';
 
-function App(props) {
+function App() {
 
-  if (props.appointments === undefined) {
-    return null;
-  }
+
   return (
     <BrowserRouter>
       <Nav />
@@ -17,7 +17,9 @@ function App(props) {
         {/* <AppointmentList appointments={props.appointments} /> */}
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="appointments/" element={<AppointmentList appointments={props.appointments} />} />
+          <Route path="appointments/" element={<AppointmentList />} />
+          <Route path="appointments/history/" element={<AppointmentHistory />} />
+          <Route path="appointments/new/" element={<AppointmentForm />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -9,17 +9,17 @@ root.render(
   </React.StrictMode>
 );
 
-async function loadAppointments() {
-  const resp = await fetch('http://localhost:8080/api/appointments/');
-  if (resp.ok) {
-    const data = await resp.json();
-    root.render(
-      <React.StrictMode>
-        <App appointments={data.appointments} />
-      </React.StrictMode>
-    )
-  } else {
-    console.error(resp)
-  }
-}
-loadAppointments();
+// async function loadAppointments() {
+//   const resp = await fetch('http://localhost:8080/api/appointments/');
+//   if (resp.ok) {
+//     const data = await resp.json();
+//     root.render(
+//       <React.StrictMode>
+//         <App appointments={data.appointments} />
+//       </React.StrictMode>
+//     )
+//   } else {
+//     console.error(resp)
+//   }
+// }
+// loadAppointments();

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { format } from 'date-fns';
 
-function AppointmentList() {
+
+function AppointmentHistory() {
 
     const [myAppointments, setAppointments] = useState([])
 
@@ -10,11 +11,7 @@ function AppointmentList() {
             try {
                 const response = await fetch(`http://localhost:8080/api/appointments/`);
                 const data = await response.json();
-                const appts = data['appointments']
-                const filtered = appts.filter(
-                    (app) => app.is_finished === false
-                )
-                return filtered
+                return data['appointments']
             } catch (err) {
                 console.error(err.message);
             }
@@ -25,43 +22,14 @@ function AppointmentList() {
         .catch(console.error)
     }, [])
 
-
-
-
-
-
-
-    const getData = async () => {
-        const resp = await fetch(`http://localhost:8080/api/appointments/`);
-        const data = await resp.json();
-        console.log(data)
-        setAppointments(data)
-    }
-
-    const handleCancel = async (id) => {
-        const resp = await fetch(`http://localhost:8080/api/appointments/${id}/`, { method: "DELETE"});
-        const data = await resp.json();
-        window.location.reload(false);
-    }
-
-
-    const updateFinished = async (id) => {
-        const response = await fetch (`http://localhost:8080/api/appointments/${id}/`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({...myAppointments.id === id, is_finished: true})
-        })
-        const result = await response.json();
-        window.location.reload(false)
-    }
-
-
-
+    const [query, setQuery] = useState("")
 
     return (
         <div>
-            <h1>Service Appointments</h1>
-
+            <h1>Service Appointment History</h1>
+            <div>
+                <input placeholder="Enter VIN" onChange={event => setQuery(event.target.value)}/>
+            </div>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -74,7 +42,12 @@ function AppointmentList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {myAppointments.map(appointment => {
+                    {myAppointments.filter(post => {
+                        if (query === "") {
+                            return post;
+                        } else if (post.vin.includes(query)) {
+                            return post;
+                        }}).map(appointment => {
                         return (
                             <tr key={ appointment.id }>
                                 <td>{ appointment.vin }</td>
@@ -83,19 +56,12 @@ function AppointmentList() {
                                 <td>{ format(new Date(appointment.appointment_date), 'Pp') }</td>
                                 <td>{ appointment.technician.name }</td>
                                 <td>{ appointment.reason }</td>
-                                <td>
-                                    <button className="btn btn-danger" onClick={() =>handleCancel(appointment.id)}>Cancel</button>
-                                </td>
-                                <td>
-                                    <button className="btn btn-success" onClick={() =>updateFinished(appointment.id)}>Finished</button>
-                                </td>
                             </tr>
                         );
                     })}
                 </tbody>
             </table>
         </div>
-    );
+    )
 }
-
-export default AppointmentList;
+export default AppointmentHistory;
