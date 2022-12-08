@@ -19,6 +19,7 @@ class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = [
         "vin",
+        "id",
         "customer_name",
         "appointment_date",
         "reason",
@@ -31,6 +32,6 @@ class AppointmentEncoder(ModelEncoder):
     def get_extra_data(self, o):
         count = len(AutomobileVO.objects.filter(vin=o.vin))
         if count > 0:
-            return {"is_vip": True}
+            return {"VIP_Status": "VIP"}
         else:
-            return {"is_vip": False}
+            return {"VIP_Status": ""}

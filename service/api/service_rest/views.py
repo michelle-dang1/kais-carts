@@ -4,6 +4,7 @@ from django.views.decorators.http import require_http_methods
 import json
 from .encoders import AutomobileVODetailEncoder, AppointmentEncoder, TechnicianEncoder
 from .models import AutomobileVO, Technician, Appointment
+from datetime import datetime
 
 @require_http_methods(["GET", "POST"])
 def api_list_appointments(request):
@@ -31,10 +32,10 @@ def api_list_appointments(request):
         )
 
 @require_http_methods(["DELETE", "GET", "PUT"])
-def api_appointment_details(request, vin):
+def api_appointment_details(request, id):
     if request.method == "GET":
         try:
-            appointment = Appointment.objects.get(vin=vin)
+            appointment = Appointment.objects.get(id=id)
             return JsonResponse(
                 appointment,
                 encoder=AppointmentEncoder,
@@ -47,7 +48,7 @@ def api_appointment_details(request, vin):
             )
     elif request.method == "DELETE":
         try:
-            appointment = Appointment.objects.get(vin=vin).delete()
+            appointment = Appointment.objects.get(id=id).delete()
             return JsonResponse(
                 appointment,
                 encoder=AppointmentEncoder,
@@ -61,8 +62,8 @@ def api_appointment_details(request, vin):
     else:
         try:
             content = json.loads(request.body)
-            Appointment.objects.filter(vin=vin).update(**content)
-            appointment = Appointment.objects.get(vin=vin)
+            Appointment.objects.filter(id=id).update(**content)
+            appointment = Appointment.objects.get(id=id)
             return JsonResponse(
                 appointment,
                 encoder=AppointmentEncoder,
