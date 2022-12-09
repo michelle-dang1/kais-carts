@@ -3,7 +3,8 @@ import AppointmentList from './AppointmentList.js';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import AppointmentHistory from './AppointmentHistory.js';
-import AppointmentForm from './AppointmentForm';
+import NewAppointmentForm from './NewAppointmentForm';
+import NewTechnicianForm from './NewTechnicianForm'
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="appointments/" element={<AppointmentList />} />
           <Route path="appointments/history/" element={<AppointmentHistory />} />
-          <Route path="appointments/new/" element={<AppointmentForm />} />
+          <Route path="appointments/new/" element={<NewAppointmentForm />} />
+          <Route path="technicians/new/" element={<NewTechnicianForm />} />
         </Routes>
       </div>
     </BrowserRouter>

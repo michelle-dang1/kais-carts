@@ -109,7 +109,7 @@ export default function AppointmentForm() {
                                 })}
                             </select>
                         </div>
-                        <button className="btn btn-primary">Add</button>
+                        <button className="btn btn-primary">Create Appointment</button>
                     </form>
                 </div>
             </div>
