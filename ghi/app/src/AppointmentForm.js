@@ -69,15 +69,6 @@ export default function AppointmentForm() {
         const response = await fetch(appointmentUrl, fetchConfig);
         if (response.ok) {
             const newAppointment = await response.json();
-            console.log(newAppointment)
-            // const cleared = {
-            //     vin: '',
-            //     customer_name: '',
-            //     appointment_date: '',
-            //     reason: '',
-            //     technicians: []
-            // }
-            // setState(cleared)
             window.location.reload(false)
         }
     }

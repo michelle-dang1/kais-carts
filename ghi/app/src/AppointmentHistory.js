@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { format } from 'date-fns';
+import { formatInTimeZone } from 'date-fns-tz';
 
 
 function AppointmentHistory() {
@@ -53,7 +53,9 @@ function AppointmentHistory() {
                                 <td>{ appointment.vin }</td>
                                 <td>{ appointment.customer_name }</td>
                                 <td>{ appointment.VIP_Status }</td>
-                                <td>{ format(new Date(appointment.appointment_date), 'Pp') }</td>
+                                <td>
+                                    { formatInTimeZone(appointment.appointment_date, 'Europe/London', 'Pp') }
+                                </td>
                                 <td>{ appointment.technician.name }</td>
                                 <td>{ appointment.reason }</td>
                             </tr>
