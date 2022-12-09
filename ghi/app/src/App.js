@@ -12,9 +12,6 @@ function App() {
     <BrowserRouter>
       <Nav />
       <div className="container">
-
-        {/* <App /> */}
-        {/* <AppointmentList appointments={props.appointments} /> */}
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="appointments/" element={<AppointmentList />} />
