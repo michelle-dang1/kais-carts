@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Dropdown } from 'react-bootstrap'
 
 function Nav() {
   return (
@@ -9,38 +10,74 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/appointments">Appointments List</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/appointments/history">Appointment History</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/appointments/new">Create Appointment</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/technicians/new">Create Technician</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/manufacturers">Manufacturers</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/manufacturers/new">Create Manufacturer</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/models">Vehicle Model List</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/models/new">Create Vehicle Model</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/inventory">Automobile Inventory</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/inventory/new">Add Automobile to Inventory</NavLink>
-            </li>
-          </ul>
+          <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Appointments
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/appointments">
+                Appointments List
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/appointments/history">
+                Appointment History
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/appointments/new">
+                Create Appointment
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Technicians
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/technicians">
+                Technician List
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/technicians/new">
+                Create Technician
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Manufacturers
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/manufacturers">
+                Manufacturer List
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/manufacturers/new">
+                Create Manufacturer
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Vehicle Models
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/models">
+                Vehicle Model List
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/models/new">
+                Create Vehicle Model
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Automobiles
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/inventory">
+                Automobile Inventory
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/inventory/new">
+                Add Automobile to Inventory
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </div>
     </nav>

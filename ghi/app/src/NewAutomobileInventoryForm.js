@@ -90,7 +90,7 @@ export default function NewAutomobileInventoryForm() {
                                     })}
                                 </select>
                             </div>
-                            <button className="btn btn-primary">Create Model</button>
+                            <button className="btn btn-primary">Add Automobile</button>
                         </form>
                     </div>
                 </div>

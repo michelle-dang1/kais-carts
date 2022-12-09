@@ -29,10 +29,10 @@ export default function AppointmentForm() {
         .then(technicians => setState({technicians: technicians}))
     }, [])
 
-    function handleVinChange(event) {
-        const value = event.target.value;
-        setState({...state, vin: value})
-    }
+    // function handleVinChange(event) {
+    //     const value = event.target.value;
+    //     setState({...state, vin: value})
+    // }
 
     function handleCNChange(event) {
         const value = event.target.value;
@@ -82,7 +82,7 @@ export default function AppointmentForm() {
                     <h1>Create a new appointment</h1>
                     <form onSubmit={handleSubmit} id="create-location-form">
                         <div className="form-floating mb-3">
-                            <input onChange={handleVinChange} placeholder="VIN" required type="text" name="vin" id="vin" className="form-control"/>
+                            <input onChange={event => setState({...state, vin: event.target.value})} placeholder="VIN" required type="text" name="vin" id="vin" className="form-control"/>
                             <label htmlFor="vin">Vin</label>
                         </div>
                         <div className="form-floating mb-3">
