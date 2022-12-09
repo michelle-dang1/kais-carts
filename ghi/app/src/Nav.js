@@ -11,28 +11,34 @@ function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/appointments">Appointments</NavLink>
+              <NavLink className="nav-link" to="/appointments">Appointments List</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/appointments/history">Appointment History</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/appointments/new">New Appointment Form</NavLink>
+              <NavLink className="nav-link" to="/appointments/new">Create Appointment</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/technicians/new">New Technician Form</NavLink>
+              <NavLink className="nav-link" to="/technicians/new">Create Technician</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/manufacturers">Manufacturers</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/manufacturers/new">New Manufacturer Form</NavLink>
+              <NavLink className="nav-link" to="/manufacturers/new">Create Manufacturer</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/vehiclemodels">Vehicle Model List</NavLink>
+              <NavLink className="nav-link" to="/models">Vehicle Model List</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/vehiclemodels/new">New Vehicle Model Form</NavLink>
+              <NavLink className="nav-link" to="/models/new">Create Vehicle Model</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/inventory">Automobile Inventory</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/inventory/new">Add Automobile to Inventory</NavLink>
             </li>
           </ul>
         </div>

@@ -9,6 +9,8 @@ import ManufacturerList from './ManufacturerList.js';
 import NewManufacturerForm from './NewManufacturerForm.js';
 import VehicleModelsList from './VehicleModelsList.js';
 import NewVehicleModelForm from './NewVehicleModelForm.js';
+import AutomobileInventoryList from './AutomobileInventoryList.js';
+import NewAutomobileInventoryForm from './NewAutomobileInventoryForm.js';
 
 function App() {
 
@@ -25,8 +27,10 @@ function App() {
           <Route path="technicians/new/" element={<NewTechnicianForm />} />
           <Route path="manufacturers/" element={<ManufacturerList />} />
           <Route path="manufacturers/new/" element={<NewManufacturerForm />} />
-          <Route path="vehiclemodels/" element={<VehicleModelsList />} />
-          <Route path="vehiclemodels/new" element={<NewVehicleModelForm />} />
+          <Route path="models/" element={<VehicleModelsList />} />
+          <Route path="models/new" element={<NewVehicleModelForm />} />
+          <Route path="inventory/" element={<AutomobileInventoryList />} />
+          <Route path="inventory/new" element={<NewAutomobileInventoryForm />} />
         </Routes>
       </div>
     </BrowserRouter>
