@@ -26,18 +26,6 @@ function AppointmentList() {
     }, [])
 
 
-
-
-
-
-
-    const getData = async () => {
-        const resp = await fetch(`http://localhost:8080/api/appointments/`);
-        const data = await resp.json();
-        console.log(data)
-        setAppointments(data)
-    }
-
     const handleCancel = async (id) => {
         const resp = await fetch(`http://localhost:8080/api/appointments/${id}/`, { method: "DELETE"});
         const data = await resp.json();
