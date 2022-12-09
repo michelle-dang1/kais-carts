@@ -32,6 +32,51 @@ def api_sales_person(request):
                 {"message": "Couldn't create sales person"}
             )
 
+require_http_methods(["GET", "DELETE", "PUT"])
+def api_sales_person_details(request, employee_number):
+    if request.method == "GET":
+        try:
+            sales_person = SalesPerson.objects.get(employee_number=employee_number)
+            return JsonResponse(
+                sales_person,
+                encoder=SalesPersonEncoder,
+                safe=False
+            )
+        except SalesPerson.DoesNotExist:
+            return JsonResponse(
+                {"message": "Sales person does not exist"},
+                status=404
+            )
+    elif request.method == "DELETE":
+        try:
+            sales_person = SalesPerson.objects.get(employee_number=employee_number).delete()
+            return JsonResponse(
+                sales_person,
+                encoder=SalesPersonEncoder,
+                safe=False
+            )
+        except SalesPerson.DoesNotExist:
+            return JsonResponse(
+                {"message": "Sales person not found"},
+                status=400
+            )
+    # PUT method
+    else:
+        try:
+            content = json.loads(request.body)
+            SalesPerson.objects.filter(employee_number=employee_number).update(**content)
+            sales_person = SalesPerson.objects.get(employee_number=employee_number)
+            return JsonResponse(
+                sales_person,
+                encoder=SalesPersonEncoder,
+                safe=False
+            )
+        except SalesPerson.DoesNotExist:
+            return JsonResponse(
+                {"message": "Could not update sales person"}
+            )
+
+
 # list and create potential customer
 @require_http_methods(["GET", "POST"])
 def api_potential_customer(request):
@@ -53,6 +98,50 @@ def api_potential_customer(request):
         except:
             return JsonResponse(
                 {"message": "Couldn't create customer"}
+            )
+
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_potential_customer_details(request, id):
+    if request.method == "GET":
+        try:
+            customer = PotentialCustomer.objects.get(id=id)
+            return JsonResponse(
+                customer,
+                encoder=PotentialCustomerEncoder,
+                safe=False
+            )
+        except PotentialCustomer.DoesNotExist:
+            return JsonResponse(
+                {"message": "Customer does not exist"},
+                status=404
+            )
+    elif request.method == "DELETE":
+        try:
+            customer = PotentialCustomer.objects.get(id=id).delete()
+            return JsonResponse(
+                customer,
+                encoder=PotentialCustomerEncoder,
+                safe=False
+            )
+        except PotentialCustomer.DoesNotExist:
+            return JsonResponse(
+                {"message": "Customer not found"},
+                status=400
+            )
+    # PUT method
+    else:
+        try:
+            content = json.loads(request.body)
+            PotentialCustomer.objects.filter(id=id).update(**content)
+            customer = PotentialCustomer.objects.get(id=id)
+            return JsonResponse(
+                customer,
+                encoder=PotentialCustomerEncoder,
+                safe=False
+            )
+        except PotentialCustomer.DoesNotExist:
+            return JsonResponse(
+                {"message": "Could not update customer"}
             )
 
 # list sales, create sales record
@@ -104,12 +193,11 @@ def api_sales_record(request):
 
 # Show sales person history
 @require_http_methods(["GET"])
-def api_show_sales(request, pk):
+def api_show_sales(request, employee_number):
     if request.method == "GET":
-        sales = SalesRecord.objects.filter(id=pk)
+        sales = SalesRecord.objects.filter(sales_person__employee_number=employee_number)
         return JsonResponse(
             sales,
             encoder=SalesRecordEncoder,
             safe=False,
         )
-    
