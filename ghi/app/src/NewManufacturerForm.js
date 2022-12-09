@@ -6,11 +6,6 @@ export default function NewManufacturerForm() {
         name: '',
     })
 
-    function handleNameChange(event) {
-        const value = event.target.value;
-        setState({...state, name: value})
-    }
-
     async function handleSubmit(event) {
         event.preventDefault();
         const data = {...state}
@@ -35,7 +30,7 @@ export default function NewManufacturerForm() {
                     <h1>Create a new manufacturer</h1>
                     <form onSubmit={handleSubmit} id="create-location-form">
                         <div className="form-floating mb-3">
-                            <input onChange={handleNameChange} placeholder="Manufacturer Name" required type="text" name="name" id="name" className="form-control"/>
+                            <input onChange={event => setState({...state, name: event.target.value})} placeholder="Manufacturer Name" required type="text" name="name" id="name" className="form-control"/>
                             <label htmlFor="name">Manufacturer Name</label>
                         </div>
                         <button className="btn btn-primary">Create Manufacturer</button>

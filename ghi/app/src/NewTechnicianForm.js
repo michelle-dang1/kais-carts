@@ -7,16 +7,6 @@ export default function TechnicianForm() {
         employee_number: ''
     })
 
-    function handleNameChange(event) {
-        const value = event.target.value;
-        setState({...state, name: value})
-    }
-
-    function handleENChange(event) {
-        const value = event.target.value;
-        setState({...state, employee_number: value})
-    }
-
     async function handleSubmit(event) {
         event.preventDefault();
         const data = {...state}
@@ -41,11 +31,11 @@ export default function TechnicianForm() {
                     <h1>Add a new technician</h1>
                     <form onSubmit={handleSubmit} id="create-location-form">
                         <div className="form-floating mb-3">
-                            <input onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>
+                            <input onChange={event => setState({...state, name: event.target.value})} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={handleENChange} placeholder="Employee Number" required type="text" name="employee_number" id="employee_number" className="form-control"/>
+                            <input onChange={event => setState({...state, employee_number: Number(event.target.value)})} placeholder="Employee Number" required type="text" name="employee_number" id="employee_number" className="form-control"/>
                             <label htmlFor="employee_number">Employee Number</label>
                         </div>
 

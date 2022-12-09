@@ -24,21 +24,6 @@ export default function NewVehicleModelForm() {
         .then(manufacturers => setState({manufacturers: manufacturers}))
     }, [])
 
-    function handleNameChange(event) {
-        const value = event.target.value;
-        setState({...state, name: value})
-    }
-
-    function handlePictureChange(event) {
-        const value = event.target.value;
-        setState({...state, picture_url: value})
-    }
-
-    function handleManufacturerChange(event) {
-        const value = event.target.value;
-        setState({...state, manufacturer_id: Number(value)})
-    }
-
     async function handleSubmit(event) {
         event.preventDefault();
         const data = {...state}
@@ -64,15 +49,15 @@ export default function NewVehicleModelForm() {
                         <h1>Create a vehicle model</h1>
                         <form onSubmit={handleSubmit} id="create-location-form">
                             <div className="form-floating mb-3">
-                                <input onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>
+                                <input onChange={event => setState({...state, name: event.target.value})} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>
                                 <label htmlFor="name">Name</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input onChange={handlePictureChange} placeholder="Picture URL" required type="url" name="picture_url" id="picture_url" className="form-control"/>
+                                <input onChange={event => setState({...state, picture_url: event.target.value})} placeholder="Picture URL" required type="url" name="picture_url" id="picture_url" className="form-control"/>
                                 <label htmlFor="picture_url">Picture URL</label>
                             </div>
                             <div className="mb-3">
-                                <select onChange={handleManufacturerChange} required name="manufacturer" id="manufacturer" className="form-select">
+                                <select onChange={event => setState({...state, manufacturer_id: Number(event.target.value)})} required name="manufacturer" id="manufacturer" className="form-select">
                                     <option value="">Choose a manufacturer</option>
                                     {state.manufacturers.map(manufacturer => {
                                         return (
