@@ -8,9 +8,9 @@ export default function SalesRecordForm() {
         sale_price: '',
     });
 
-    const [Automobiles, setAutomobiles] = useState([]);
-    const [SalesPeople, setSalesPeople] = useState([]);
-    const [Customers, setCustomers] = useState([]);
+    const [automobiles, setAutomobiles] = useState([]);
+    const [salesPeople, setSalesPeople] = useState([]);
+    const [customers, setCustomers] = useState([]);
 
     useEffect(() => {
         const getAutomobiles = async () => {
@@ -119,7 +119,7 @@ export default function SalesRecordForm() {
                     <div className="mb-3">
                             <select onChange={handleAutomobileChange} required name="automobiles" id="automobiles" className="form-select">
                                 <option value="">Choose an automobile</option>
-                                {Automobiles.map(automobile => {
+                                {automobiles.map(automobile => {
                                     return (
                                         <option key={automobile.id} value={automobile.vin}>
                                             {automobile.vin}
@@ -131,7 +131,7 @@ export default function SalesRecordForm() {
                     <div className="mb-3">
                             <select onChange={handleSalesPersonChange} required name="sales_people" id="sales_people" className="form-select">
                                 <option value="">Choose a sales person</option>
-                                {SalesPeople.map(sales_person => {
+                                {salesPeople.map(sales_person => {
                                     return (
                                         <option key={sales_person.employee_number} value={sales_person.name}>
                                             {sales_person.name}
@@ -143,7 +143,7 @@ export default function SalesRecordForm() {
                     <div className="mb-3">
                             <select onChange={handleCustomerChange} required name="customers" id="customers" className="form-select">
                                 <option value="">Choose a customer</option>
-                                {Customers.map(customer => {
+                                {customers.map(customer => {
                                     return (
                                         <option key={customer.id} value={customer.id}>
                                             {customer.name}

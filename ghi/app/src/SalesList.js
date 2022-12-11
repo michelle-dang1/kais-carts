@@ -10,7 +10,7 @@ function SalesList() {
                 const data = await response.json();
                 return data['sales'];
             } catch (err) {
-                console.error(err.message);
+                console.err(err.message);
             }
         }
 
