@@ -69,29 +69,22 @@ export default function SalesRecordForm() {
     }, )
 
     function handleAutomobileChange(event) {
-        console.log(salesRecord);
         const value = event.target.value;
-        console.log(value);
         setSalesRecord({...salesRecord, automobile: value})
     }
 
 
     function handleSalesPersonChange(event) {
-        console.log(salesRecord);
         const value = event.target.value;
         setSalesRecord({...salesRecord, sales_person: value})
-        console.log(value)
     }
 
     function handleCustomerChange(event) {
-        console.log(salesRecord);
         const value = event.target.value;
         setSalesRecord({...salesRecord, customer: value})
-        console.log(value)
     }
 
     function handleSalePrice(event) {
-        console.log(salesRecord);
         const value = event.target.value;
         setSalesRecord({...salesRecord, sale_price: value})
     }
@@ -107,13 +100,11 @@ export default function SalesRecordForm() {
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(data)
         }
-        console.log(fetchConfig);
 
         const response = await fetch(salesRecordUrl, fetchConfig);
         if (response.ok) {
             const newSalesRecord = await response.json();
-            //window.location.reload(false);
-            console.log(newSalesRecord)
+            window.location.reload(false);
         }
 
 

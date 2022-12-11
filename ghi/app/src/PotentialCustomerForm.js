@@ -38,7 +38,6 @@ export default function PotentialCustomerForm() {
         if (response.ok) {
             const newPotentialCustomer = await response.json();
             window.location.reload(false);
-            console.log(newPotentialCustomer)
         }
 
 

@@ -6,15 +6,6 @@ export default function SalesPersonForm() {
         employee_number: "",
     });
 
-
-    { /*const handleChange = (event) => {
-        setSalesPersonForm({ 
-            ...salesPersonForm, 
-            [event.target.name]: event.target.value,
-            [event.target.employee_number]: event.target.value,
-        });
-    }; */}
-
     function handleNameChange(event) {
         const value = event.target.value;
         setSalesPerson({...salesPerson, name: value})
@@ -41,7 +32,6 @@ export default function SalesPersonForm() {
         if (response.ok) {
             const newSalesPerson = await response.json();
             window.location.reload(false);
-            console.log(newSalesPerson)
         }
 
 
