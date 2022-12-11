@@ -10,6 +10,19 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Sales
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/sales">
+                Sales List
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/sales/new">
+                Create Sales Record
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <Dropdown className='nav-item'>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Appointments
@@ -23,6 +36,29 @@ function Nav() {
               </Dropdown.Item>
               <Dropdown.Item className="nav-item" href="/appointments/new">
                 Create Appointment
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Sales Person
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/salesperson">
+                Sales History
+              </Dropdown.Item>
+              <Dropdown.Item className="nav-item" href="/salesperson/new">
+                Create a sales person
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown className='nav-item'>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Customers
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="nav-item" href="/customers/new">
+                Create a potential customer
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
