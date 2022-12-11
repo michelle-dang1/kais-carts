@@ -35,7 +35,7 @@ function Nav() {
                 Appointment History
               </Dropdown.Item>
               <Dropdown.Item className="nav-item" href="/appointments/new">
-                Create Appointment
+                Create Service Appointment
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -57,7 +57,7 @@ function Nav() {
               Customers
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item className="nav-item" href="/customers/new">
+              <Dropdown.Item className="nav-item" href="/customer/new">
                 Create a potential customer
               </Dropdown.Item>
             </Dropdown.Menu>
