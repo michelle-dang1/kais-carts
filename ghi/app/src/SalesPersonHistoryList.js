@@ -16,7 +16,6 @@ export default function SalesPersonHistoryList () {
                 console.err(err.message);
             }
         }
-
         getSales()
         .then(sales => setSales(sales))
         .catch(console.error)
@@ -45,6 +44,11 @@ export default function SalesPersonHistoryList () {
         }
         setSelectedSalesPerson(event.target.value)
     }
+
+    const intToUSD = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
 
     return (
         <div>
@@ -77,7 +81,7 @@ export default function SalesPersonHistoryList () {
                                     <td>{sale.sales_person.name}</td>
                                     <td>{sale.customer.name}</td>
                                     <td>{sale.automobile}</td>
-                                    <td>{sale.sale_price}</td>
+                                    <td>{intToUSD.format(sale.sale_price)}</td>
                                 </tr>
                                 )
                             })
@@ -90,7 +94,7 @@ export default function SalesPersonHistoryList () {
                                     <td>{sale.sales_person.name}</td>
                                     <td>{sale.customer.name}</td>
                                     <td>{sale.automobile}</td>
-                                    <td>{sale.sale_price}</td>
+                                    <td>{intToUSD.format(sale.sale_price)}</td>
                                 </tr>
                                 )
                             })

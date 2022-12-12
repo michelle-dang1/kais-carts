@@ -13,11 +13,15 @@ export default function SalesList() {
                 console.err(err.message);
             }
         }
-
         getSales()
         .then(sales => setSales(sales))
         .catch(console.error)
     }, [])
+
+    const intToUSD = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
 
     return (
         <table className="table table-striped">
@@ -38,7 +42,7 @@ export default function SalesList() {
                         <td>{sale.sales_person.employee_number}</td>
                         <td>{sale.customer.name}</td>
                         <td>{sale.automobile}</td>
-                        <td>{sale.sale_price}</td>
+                        <td>{intToUSD.format(sale.sale_price)}</td>
                     </tr>)
                     })
                 }
