@@ -29,7 +29,7 @@ function Nav() {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item className="nav-item" href="/appointments">
-                Appointments List
+                Appointment List
               </Dropdown.Item>
               <Dropdown.Item className="nav-item" href="/appointments/history">
                 Appointment History

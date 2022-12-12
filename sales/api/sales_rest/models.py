@@ -9,7 +9,7 @@ class AutomobileVO(models.Model):
 
 class SalesPerson(models.Model):
     name = models.CharField(max_length=200)
-    employee_number = models.PositiveSmallIntegerField()
+    employee_number = models.PositiveSmallIntegerField(unique=True)
 
     def __str__(self):
         return self.name
