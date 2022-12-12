@@ -16,7 +16,6 @@ export default function SalesPersonForm() {
         setSalesPerson({...salesPerson, employee_number: value})
     }
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = {...salesPerson}
@@ -33,8 +32,6 @@ export default function SalesPersonForm() {
             const newSalesPerson = await response.json();
             window.location.reload(false);
         }
-
-
     };
 
     return (
@@ -56,7 +53,5 @@ export default function SalesPersonForm() {
                 </div>
             </div>
         </div>
-    )
-
-    
+    )  
 }

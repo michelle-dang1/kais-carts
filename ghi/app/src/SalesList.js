@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-function SalesList() {
+export default function SalesList() {
     const [sales, setSales] = useState([]);
 
     useEffect(() => {
@@ -46,5 +46,3 @@ function SalesList() {
         </table>
     );
 }
-
-export default SalesList;

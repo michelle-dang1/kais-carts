@@ -13,5 +13,4 @@ Created a poller to get the information from the inventory microservice. Created
 
 ## Sales microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+I created models for the sales person, potential customer, sales record, and an Automobile VO, which obtains the data from the poller. The poller collects the data from the inventory microservice, which gets the list of automobile objects. After registering the models in the admin, I created CRUD functions for the sales people and potential customers. For the sales record I made view functions to list the sales people, create a sales person, and show the sales person

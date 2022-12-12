@@ -57,7 +57,7 @@ function Nav() {
               Customers
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item className="nav-item" href="/customer/new">
+              <Dropdown.Item className="nav-item" href="/customers/new">
                 Create a potential customer
               </Dropdown.Item>
             </Dropdown.Menu>

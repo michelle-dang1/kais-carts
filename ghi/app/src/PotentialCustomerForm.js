@@ -22,7 +22,6 @@ export default function PotentialCustomerForm() {
         setpotentialCustomer({...potentialCustomer, phone_number: value})
     }
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = {...potentialCustomer}
@@ -39,8 +38,6 @@ export default function PotentialCustomerForm() {
             const newPotentialCustomer = await response.json();
             window.location.reload(false);
         }
-
-
     };
 
     return (
@@ -55,7 +52,7 @@ export default function PotentialCustomerForm() {
                     </div>
                     <div className="form-floating mb-3">
                         <input onChange={handleAddressChange} value={potentialCustomer.address} placeholder="address" required type="text" name="address" id="address" className="form-control" />
-                        <label htmlFor="employee_number">Address</label>
+                        <label htmlFor="address">Address</label>
                     </div>
                     <div className="form-floating mb-3">
                         <input onChange={handlePhoneNumberChange} value={potentialCustomer.phone_number} placeholder="Phone number" required type="number" name="phone_number" id="phone_number" className="form-control" />
@@ -67,6 +64,4 @@ export default function PotentialCustomerForm() {
             </div>
         </div>
     )
-
-    
 }

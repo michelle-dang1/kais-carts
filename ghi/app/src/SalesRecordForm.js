@@ -20,8 +20,6 @@ export default function SalesRecordForm() {
                     const data = await resp.json();
                     const automobiles = data.autos
                     return automobiles
-
-
                 }
             } catch (err) {
                 console.error(err.message)
@@ -66,13 +64,12 @@ export default function SalesRecordForm() {
         }
         getCustomers()
         .then(customers => setCustomers(customers))
-    }, )
+    }, [])
 
     function handleAutomobileChange(event) {
         const value = event.target.value;
         setSalesRecord({...salesRecord, automobile: value})
     }
-
 
     function handleSalesPersonChange(event) {
         const value = event.target.value;
@@ -88,7 +85,6 @@ export default function SalesRecordForm() {
         const value = event.target.value;
         setSalesRecord({...salesRecord, sale_price: value})
     }
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -106,8 +102,6 @@ export default function SalesRecordForm() {
             const newSalesRecord = await response.json();
             window.location.reload(false);
         }
-
-
     };
 
     return (
@@ -162,6 +156,4 @@ export default function SalesRecordForm() {
             </div>
         </div>
     )
-
-
 }

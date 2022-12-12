@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function SalesPersonHistoryList () {
+export default function SalesPersonHistoryList () {
     const [sales, setSales] = useState([]);
     const [salesPeople, setSalesPeople] = useState([]);
     const [selectedSalesPerson, setSelectedSalesPerson] = useState("");
@@ -100,6 +100,4 @@ function SalesPersonHistoryList () {
             </table>
         </div>
     );
-
 }
-export default SalesPersonHistoryList;
