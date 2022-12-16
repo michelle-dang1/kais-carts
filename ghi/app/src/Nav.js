@@ -3,15 +3,15 @@ import { Dropdown } from 'react-bootstrap'
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">CarCar</NavLink>
+        <NavLink className="navbar-brand" to="/">Kai's Carts</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Sales
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -24,7 +24,7 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Appointments
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -40,7 +40,7 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Sales Person
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -53,7 +53,7 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Customers
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -63,7 +63,7 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Technicians
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -76,7 +76,7 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Manufacturers
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -89,7 +89,7 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Vehicle Models
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -102,7 +102,7 @@ function Nav() {
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown className='nav-item'>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Automobiles
             </Dropdown.Toggle>
             <Dropdown.Menu>

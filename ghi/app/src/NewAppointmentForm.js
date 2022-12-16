@@ -8,8 +8,9 @@ export default function AppointmentForm() {
         customer_name: '',
         appointment_date: '',
         reason: '',
-        technicians: []
+        technicians: [],
     })
+    const [customers, setCustomers] = useState([])
 
     useEffect(() => {
         const getTechs = async () => {
@@ -27,6 +28,23 @@ export default function AppointmentForm() {
         }
         getTechs()
         .then(technicians => setState({technicians: technicians}))
+    }, [])
+
+    useEffect(() => {
+        const getCustomers = async () => {
+            try {
+                const resp = await fetch('http://localhost:8090/api/customers/')
+                if (resp.ok) {
+                    const data = await resp.json()
+                    const customers = data.potential_customer
+                    return customers
+                }
+            } catch (err) {
+                console.error(err.message)
+            }
+        }
+        getCustomers()
+        .then(customers => setCustomers(customers))
     }, [])
 
     async function handleSubmit(event) {
@@ -59,9 +77,17 @@ export default function AppointmentForm() {
                             <input onChange={event => setState({...state, vin: event.target.value})} placeholder="VIN" required type="text" name="vin" id="vin" className="form-control"/>
                             <label htmlFor="vin">Vin</label>
                         </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={event => setState({...state, customer_name: event.target.value})} placeholder="Customer Name" required type="text" name="customer_name" id="customer_name" className="form-control"/>
-                            <label htmlFor="customer_name">Customer Name</label>
+                        <div className="mb-3">
+                            <select onChange={event => setState({...state, customer_name: event.target.value})} required name="customers" id="customers" className="form-select">
+                                <option value="">Choose a customer</option>
+                                {customers.map(customer => {
+                                    return (
+                                        <option key={customer.id} value={customer.name}>
+                                            {customer.name}
+                                        </option>
+                                    )
+                                })}
+                            </select>
                         </div>
                         <div className="form-floating mb-3">
                             <input onChange={event => setState({...state, appointment_date: event.target.value})} placeholder="Appointment Date/time" required type="datetime-local" name="appointment_date" id="appointment_date" className="form-control"/>

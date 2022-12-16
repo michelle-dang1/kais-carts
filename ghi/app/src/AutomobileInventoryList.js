@@ -17,7 +17,7 @@ export default function AutomobileInventoryList() {
         getInventory()
         .then(inventory => setAutomobileInventory(inventory))
         .catch(console.error)
-    })
+    }, [])
 
     return (
         <div>
